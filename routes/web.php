@@ -14,5 +14,17 @@ use App\Http\Controllers\Auth_Controller;
 |
 */
 
-Route::get('/sign-up',[Auth_Controller::class,'sign_up']);
-Route::get('/login',[Auth_Controller::class,'login']);
+
+Route::get('/register',[Auth_Controller::class,'register_view']);
+Route::get('/login',[Auth_Controller::class,'login_view']);
+
+Route::post('/sign-up',[Auth_Controller::class,'sign_up'])->name('sign_up');
+Route::post('/sign-in',[Auth_Controller::class,'sign_in'])->name('sign_in');
+
+
+
+
+
+Route::get('/resume',function(){
+    return view('resume');
+});
