@@ -1,5 +1,17 @@
 @extends('layout')
 
+@if(session()->has('message'))
+<script>
+    var alert = confirm('{{session('message')}}');
+    if(alert){
+        window.location.href = 'register';
+    }
+
+</script>
+@elseif(session()->has('success'))
+    <script>alert('{{session('success')}}');</script>
+@endif
+
 @section('css')
 <style>
     .log_btn {
@@ -16,7 +28,7 @@
         <div class="unit">
             <label for="contact">Mobile Number</label>
             <div>
-                <input type="tel" name="contact" id="contact">
+                <input type="tel" name="contact" id="contact" value="{{old('contact')}}">
                 <span class="error">@error('contact'){{$message}}@enderror</span>
             </div>
         </div>

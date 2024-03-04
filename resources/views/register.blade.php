@@ -1,5 +1,9 @@
 @extends('layout')
 
+@if(session()->has('message'))
+    <script>alert('{{session('message')}}');</script>
+@endif
+
 @section('css')
 <style>
     .reg_btn {
@@ -16,14 +20,14 @@
         <div class="unit">
             <label for="name">Name</label>
             <div>
-                <input type="text" name="name" id="name">
+                <input type="text" name="name" id="name" value="{{old('name')}}">
                 <span class="error">@error('name'){{$message}}@enderror</span>
             </div>
         </div>
         <div class="unit">
             <label for="contact">Mobile Number</label>
             <div>
-                <input type="tel" name="contact" id="contact">
+                <input type="tel" name="contact" id="contact" value="{{old('contact')}}">
                 <span class="error">@error('contact'){{$message}}@enderror</span>
             </div>
         </div>
