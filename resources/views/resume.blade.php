@@ -1,4 +1,4 @@
-@extends('common_layouts.app_wrapper')
+@extends('layout')
 
 @section('css')
 <style>
