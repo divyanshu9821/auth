@@ -12,14 +12,6 @@ class Taxation_Controller extends Controller
         return $value * $precent / 100;
     }
 
-    public function pre_process_slabs($tax_slabs){
-        if(!isset($tax_slabs['amount']) || !isset($tax_slabs['percentage'])){
-            return false;
-        }
-
-
-    }
-
     public function calculate_tax($income)
     {
         $tax = 0;

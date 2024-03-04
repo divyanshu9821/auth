@@ -15,12 +15,12 @@ use App\Http\Controllers\ViewLoaderController;
 |
 */
 
-
+// these routes are use to load the blades
 Route::get('/', [ViewLoaderController::class, 'home_view']);
 Route::get('/register', [ViewLoaderController::class, 'register_view']);
 Route::get('/login', [ViewLoaderController::class, 'login_view']);
 Route::get('/resume', [ViewLoaderController::class, 'resume_view']);
-Route::get('/tax-calc', [ViewLoaderController::class, 'taxcalc_view']);
 
+// these routes has functionality
 Route::post('/sign-up', [AuthController::class, 'sign_up'])->name('sign_up');
 Route::post('/sign-in', [AuthController::class, 'sign_in'])->name('sign_in');

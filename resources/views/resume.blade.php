@@ -14,7 +14,6 @@
 
     body {
         overflow: hidden;
-        background-color: darkgrey;
     }
 </style>
 @endsection

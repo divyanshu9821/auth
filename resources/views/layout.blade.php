@@ -1,7 +1,5 @@
 @php
-if (!isset($title)) {
-    $title = 'Lara Prac';
-}
+$title = (!isset($title)) ? 'Lara Prac' : $title ;
 @endphp
 
 <!DOCTYPE html>

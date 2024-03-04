@@ -42,9 +42,10 @@ class AuthController extends Controller
 
         $data['contact'] = $req->contact;
         $data['password'] = $req->password;
-        $check_usr = DB::table('user')->where($data)->first();
+        $check_usr = DB::table('user')->select('name')->where($data)->first();
         if($check_usr != null){
-            return redirect()->to('tax-calc');
+            $data['name'] = $check_usr->name;
+            return view('taxcalc', $data);
         }
         else{
             session()->flash('message','Account doesnot exists with these credentials. Would you like to create account?');

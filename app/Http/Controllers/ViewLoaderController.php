@@ -11,19 +11,22 @@ class ViewLoaderController extends Controller{
 
     function login_view()
     {
-        return view('login', ['title' => 'login']);
+        $data['title'] = 'login';
+        return view('login', $data);
     }
 
     function register_view()
     {
-        return view('register', ['title' => 'Register']);
+        $data['title'] = 'Register';
+        return view('register', $data);
     }
 
     public function resume_view(){
-        return view('resume',['title' => 'Divyanshu Singhal']);
+        $data['title'] = 'Divyanshu Singhal';
+        return view('resume',$data);
     }
 
     public function taxcalc_view(){
-        return view('taxcalc', ['title' => 'Tax Calc']);
+        
     }
 }
