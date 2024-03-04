@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth_Controller;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ViewLoaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,16 +16,11 @@ use App\Http\Controllers\Auth_Controller;
 */
 
 
-Route::get('/register',[Auth_Controller::class,'register_view']);
-Route::get('/login',[Auth_Controller::class,'login_view']);
+Route::get('/', [ViewLoaderController::class, 'home_view']);
+Route::get('/register', [ViewLoaderController::class, 'register_view']);
+Route::get('/login', [ViewLoaderController::class, 'login_view']);
+Route::get('/resume', [ViewLoaderController::class, 'resume_view']);
+Route::get('/tax-calc', [ViewLoaderController::class, 'taxcalc_view']);
 
-Route::post('/sign-up',[Auth_Controller::class,'sign_up'])->name('sign_up');
-Route::post('/sign-in',[Auth_Controller::class,'sign_in'])->name('sign_in');
-
-
-
-
-
-Route::get('/resume',function(){
-    return view('resume');
-});
+Route::post('/sign-up', [AuthController::class, 'sign_up'])->name('sign_up');
+Route::post('/sign-in', [AuthController::class, 'sign_in'])->name('sign_in');
