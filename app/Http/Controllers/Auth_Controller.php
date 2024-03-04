@@ -1,18 +1,24 @@
 <?php
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
-class Auth_Controller extends Controller{
-    function register_view(Request $request){
-        return view('register');
+
+class Auth_Controller extends Controller
+{
+    function register_view(Request $request)
+    {
+        return view('register', ['title' => 'Register']);
     }
 
-    function login_view(){
-        return view('login');
+    function login_view()
+    {
+        return view('login', ['title' => 'loginr']);
     }
 
-    function sign_in(Request $req){
+    function sign_in(Request $req)
+    {
         $rules = [
             'contact' => ['max:10', 'required'],
             'password' => ['min:6', 'required']
@@ -24,16 +30,12 @@ class Auth_Controller extends Controller{
             'password.min' => 'must have atleast 6 characters',
             'password.required' => 'password is required'
         ];
-        
+
         $req->validate($rules, $messages);
+    }
 
-
-
-
-        
-    }   
-
-    function sign_up(Request $req){
+    function sign_up(Request $req)
+    {
         $rules = [
             'name' => ['required'],
             'contact' => ['max:10', 'required'],
@@ -49,8 +51,5 @@ class Auth_Controller extends Controller{
         ];
 
         $req->validate($rules, $messages);
-
-
-
     }
 }

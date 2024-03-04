@@ -22,9 +22,11 @@ Route::post('/sign-up',[Auth_Controller::class,'sign_up'])->name('sign_up');
 Route::post('/sign-in',[Auth_Controller::class,'sign_in'])->name('sign_in');
 
 
-
+Route::get('/',function(){
+    return view('homepage');
+});
 
 
 Route::get('/resume',function(){
-    return view('resume');
+    return view('resume',['title' => 'Divyanshu Singhal']);
 });

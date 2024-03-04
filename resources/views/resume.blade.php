@@ -2,13 +2,19 @@
 
 @section('css')
 <style>
-    .resume{
-        height:100vh;
-        width:100%;
+    .resume {
+        height: 94vh;
+        width: 100%;
     }
-    
-    body{
-        overflow:hidden;
+
+    .res_btn {
+        background-color: black;
+        color: white;
+    }
+
+    body {
+        overflow: hidden;
+        background-color: darkgrey;
     }
 </style>
 @endsection
