@@ -12,7 +12,7 @@
     @yield('css')
 </head>
 <body>
-    <div>
+    <div style="margin-bottom:4px;">
         <a href="/"><button>logout</button></a>
     </div>
     @yield('content')
