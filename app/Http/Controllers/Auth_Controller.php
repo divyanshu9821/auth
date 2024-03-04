@@ -24,32 +24,27 @@ class Auth_Controller extends Controller
             'password' => ['min:6', 'required']
         ];
 
-        $messages = [
-            'contact.max' => 'invalid mobile number',
-            'contact.required' => 'please enter your mobile number',
-            'password.min' => 'must have atleast 6 characters',
-            'password.required' => 'password is required'
-        ];
+        $req->validate($rules);
 
-        $req->validate($rules, $messages);
+        
     }
 
     function sign_up(Request $req)
     {
         $rules = [
             'name' => ['required'],
-            'contact' => ['max:10', 'required'],
+            'contact' => ['max:10', 'required', 'int'],
             'password' => ['min:6', 'required']
         ];
 
-        $messages = [
-            'name.required' => 'please enter your name',
-            'contact.max' => 'invalid mobile number',
-            'contact.required' => 'please enter your mobile number',
-            'password.min' => 'must have atleast 6 characters',
-            'password.required' => 'password is required'
-        ];
+        $req->validate($rules);
 
-        $req->validate($rules, $messages);
+        $name = $req->name;
+        $contact = $req->contact;
+        $password = $req->password;
+        $check_user = DB::table('user')->select('id')->where('contact',$contact)->first();
+        if($check_user == null){
+            
+        }
     }
 }
