@@ -12,6 +12,9 @@
     @yield('css')
 </head>
 <body>
+    <div>
+        <a href="/"><button>logout</button></a>
+    </div>
     @yield('content')
     @yield('js')
 </body>
