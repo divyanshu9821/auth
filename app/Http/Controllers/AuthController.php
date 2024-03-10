@@ -7,6 +7,10 @@ use DB;
 
 class AuthController extends Controller
 {
+
+    function hash_pass($pass){
+        return hash_hmac('SHA256',$pass,env('PASS_SALT'));
+    }
     function sign_up(Request $req)
     {
         $rules = [
@@ -19,10 +23,10 @@ class AuthController extends Controller
     
         $data['name'] = $req->name;
         $data['contact'] = $req->contact;
-        $data['password'] = $req->password;
-        $check_user = DB::table('user')->select('id')->where('contact',$data['contact'])->first();
+        $data['password'] = self::hash_pass($req->password);
+        $check_user = DB::table('user_cred')->select('id')->where('contact',$data['contact'])->first();
         if($check_user == null){
-            DB::table('user')->insert($data);
+            DB::table('user_cred')->insert($data);
             session()->flash('success', 'Account registration complete');
             return redirect('login');
         }
@@ -41,8 +45,8 @@ class AuthController extends Controller
         $req->validate($rules);
 
         $data['contact'] = $req->contact;
-        $data['password'] = $req->password;
-        $check_usr = DB::table('user')->select('name')->where($data)->first();
+        $data['password'] = self::hash_pass($req->password);
+        $check_usr = DB::table('user_cred')->select('name')->where($data)->first();
         if($check_usr != null){
             $data['name'] = $check_usr->name;
             return view('taxcalc', $data);

@@ -17,6 +17,8 @@ class Taxation_Controller extends Controller
         $tax = 0;
         // $slabs = [300000, 500000, 600000, 900000, 1000000, 1200000, 1500000];
         // $percentage = [5, 5, 10, 15, 15, 20, 30];
+
+        // tax as per new tax regime
         $slabs = [300000, 200000, 100000, 300000, 100000, 200000, 300000];
         $percentage = [5, 5, 10, 15, 15, 20, 30];
         
